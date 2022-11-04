@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abigail-Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="col-3" style="margin-top: 15%; margin-left: 45%;">
+        <div style="margin-top: 15px;">
+            <input type="text" class="form-control" id="resul">
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-primary" onclick="clikB(1)">1</button>
+            <button class="btn btn-primary" onclick="clikB(2)">2</button>
+            <button class="btn btn-primary" onclick="clikB(3)">3</button>
+            <button class="btn btn-primary" onclick="clikB(4)">4</button>
+            <button class="btn btn-primary" onclick="clikB(5)">5</button>
+        </div>
+        <div style="margin-top: 15px;">
+            
+            <button class="btn btn-primary" onclick="clikB(6)">6</button>
+            <button class="btn btn-primary" onclick="clikB(7)">7</button>
+            <button class="btn btn-primary" onclick="clikB(8)">8</button>
+            <button class="btn btn-primary" onclick="clikB(9)">9</button>
+            <button class="btn btn-primary" onclick="clikB(0)">0</button>
+        </div>
+        <div style="margin-top: 15px;">
+            
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-danger" onclick="clearB()">c</button>
+            <button class="btn btn-dark" onclick="sumaB()">+</button>
+            <button class="btn btn-dark" onclick="restaB()">-</button>
+            <button class="btn btn-dark" onclick="multiB()">*</button>
+            <button class="btn btn-dark" onclick="diviB()">/</button>
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-dark" onclick="powB()">pow</button>
+            <button class="btn btn-dark" onclick="sqrtB()">sqrt</button>
+            <button class="btn btn-dark" onclick="CosB()">Cos</button>
+            <button class="btn btn-dark" onclick="TanB()">Tan</button>
+            <button class="btn btn-dark" onclick="salB()">sal</button>
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-success" style="width: 100%;"onclick="igualB()">=</button>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        //$("#resul").val("hola mundo");
+        var acu="";
+        var opera="";
+        var alge= 0;
+
+        function igualB(){
+            if (alge==1){
+                sum = parseInt(opera) + parseInt(acu);
+                alge= 0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+            if (alge==2){
+                sum = parseInt(opera) - parseInt(acu);
+                alge= 0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+            if (alge==3){
+                sum = parseInt(opera) * parseInt(acu);
+                alge= 0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+            if (alge==4){
+                sum = parseInt(opera) / parseInt(acu);
+                alge= 0;
+                $("#resul").val(sum);
+                acu=sum;
+                
+                
+            }
+            if (alge==5){
+                sum = Math.pow(parseInt(opera), parseInt(acu));
+                alge= 0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+            
+        }
+        function sumaB(){
+            opera=acu;
+            alge =1;
+            //console.log(opera + alge);
+            clearB();
+            
+
+        }
+        function restaB(){
+            opera=acu;
+            alge =2;
+            //console.log(opera + alge);
+            clearB();
+            
+
+        }
+        function multiB(){
+            opera=acu;
+            alge =3;
+            //console.log(opera + alge);
+            clearB();
+            
+
+        }
+        function diviB(){
+            opera=acu;
+            alge =4;
+            //console.log(opera + alge);
+            clearB();
+            
+
+        }
+        function powB(){
+            opera=acu;
+            alge =5;
+            clearB();
+        }
+        function sqrtB(){
+            sum = Math.sqrt(parseInt(acu)) ;
+            alge =0;
+            $("#resul").val(sum);
+            acu=sum;
+        }
+        function CosB(){
+            sum = Math.cos(parseInt(acu));
+            alge =0;
+            $("#resul").val(sum +"radianes");
+            acu=sum;
+        }
+        function TanB(){
+            sum = Math.tan(parseInt(acu));
+            alge =0;
+            $("#resul").val(sum +"radianes");
+            acu=sum;
+        }
+        function salB(){
+            $("#resul").val("Abigail Ordonez Becerril");
+            acu="";
+        }
+        function clikB(valor){
+            //alert (valor);
+            acu=acu + valor;
+            $("#resul").val(acu);
+        }
+        function clearB(){
+            $("#resul").val("");
+            acu="";
+        }
+    </script>
+</body>
+</html>
